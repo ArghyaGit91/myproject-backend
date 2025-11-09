@@ -32,6 +32,14 @@ management:
     env:
       enabled: true
 
+feign:
+  circuitbreaker:
+    enabled: true
+  httpclient:
+    enabled: true
+  okhttp:
+    enabled: false
+
 
   application:
     name: FOODCATALOGUE-SERVICE

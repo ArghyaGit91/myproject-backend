@@ -2,6 +2,7 @@ package com.techcode.foodcatalogue.controller;
 
 
 import com.techcode.foodcatalogue.bl.FoodCatalogueBL;
+import com.techcode.foodcatalogue.dto.FoodCataloguePage;
 import com.techcode.foodcatalogue.dto.FoodItemDTO;
 import com.techcode.foodcatalogue.ui.response.BaseUIResponse;
 import jakarta.validation.Valid;
@@ -24,6 +25,15 @@ public class FoodCatalogueController {
         BaseUIResponse response = foodCatalogueBL.saveFoodItem(foodItemDTO);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/api/fetchRestaurantDetailsWithFoodMenu/{restaurantId}")
+    public ResponseEntity<FoodCataloguePage> fetchRestaurantDetailsWithFoodMenu(
+            @PathVariable Integer restaurantId) {
+
+        FoodCataloguePage response = foodCatalogueBL.fetchRestaurantDetailsWithFoodMenu(restaurantId);
+        return ResponseEntity.ok(response);
     }
 
 

@@ -6,6 +6,9 @@ import com.techcode.foodcatalogue.repository.FoodItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class FoodItemService {
 
@@ -18,5 +21,9 @@ public class FoodItemService {
 
     public FoodItemEntity saveFoodItem(FoodItemEntity foodItemEntity) {
         return foodItemRepository.saveAndFlush(foodItemEntity);
+    }
+
+    public Optional<List<FoodItemEntity>> findByRestaurantId(Integer restaurantId) {
+        return foodItemRepository.findByRestaurantId(restaurantId);
     }
 }
